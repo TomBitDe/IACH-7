@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+         version="3.1">
+    <enterprise-beans>
+        <session>
+            <ejb-name>TruckerManager</ejb-name>
+            <ejb-class>com.mycompany.iach7.trucker.TruckerManagerBean</ejb-class>
+            <ejb-local-ref>
+                <ejb-ref-name>com.mycompany.iach7.trucker.TruckerManagerBean</ejb-ref-name>
+                <local>com.mycompany.iach7.trucker.TruckerManager</local>
+                <ejb-link>TruckerManager</ejb-link>
+            </ejb-local-ref>
+        </session>
+        <session>
+            <ejb-name>ControllerBean2</ejb-name>
+            <ejb-local-ref>
+                <ejb-ref-name>NewSessionBean</ejb-ref-name>
+                <ejb-link>OtherSession</ejb-link>
+            </ejb-local-ref>
+        </session>
+    </enterprise-beans>
+</ejb-jar>
