@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="IACH-7-ejb" parallel="instances" thread-count="1">
+
+    <test name="com.mycompany.iach7.truck suite">
+        <packages>
+            <package name="com.mycompany.iach7.truck"/>
+        </packages>
+    </test>
+
+</suite>
