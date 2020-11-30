@@ -53,11 +53,37 @@ public class DttmMakeHelperTest extends TestCase {
     /**
      * Test of makeDttm16 method of class DttmMakeHelper.
      */
+    public void testMakeDttm16Date() {
+        Date date = null;
+        String expResult = "2012100513421793";
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(2012, 9, 5, 13, 42, 17);
+        cal.set(Calendar.MILLISECOND, 930);
+        String result = DttmMakeHelper.makeDttm16(cal.getTime());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of makeDttm16 method of class DttmMakeHelper.
+     */
     public void testMakeDttm16NoArgs() {
         String result = DttmMakeHelper.makeDttm16();
         assertNotNull(result);
         assertFalse(result.isEmpty());
         assertTrue(result.length() == 16);
+    }
+
+    /**
+     * Test of makeDttm16 method of class DttmMakeHelper.
+     */
+    public void testMakeDttm17Date() {
+        Date date = null;
+        String expResult = "20121005134217938";
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(2012, 9, 5, 13, 42, 17);
+        cal.set(Calendar.MILLISECOND, 938);
+        String result = DttmMakeHelper.makeDttm17(cal.getTime());
+        assertEquals(expResult, result);
     }
 
     /**
