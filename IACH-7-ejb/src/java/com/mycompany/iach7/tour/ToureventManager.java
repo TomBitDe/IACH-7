@@ -136,8 +136,10 @@ public interface ToureventManager {
      * Delete a tour event by its Primary Key
      *
      * @param id the key
+     *
+     * @return the tourevent PK of the deleted tourevent
      */
-    public void delete(ToureventPK id);
+    public ToureventPK delete(ToureventPK id);
 
     /**
      * Get all tour events filtered by the tourId

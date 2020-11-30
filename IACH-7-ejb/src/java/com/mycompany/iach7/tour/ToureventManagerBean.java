@@ -505,18 +505,22 @@ public class ToureventManagerBean implements ToureventManager {
      * {@inheritDoc}
      */
     @Override
-    public void delete(ToureventPK id) {
+    public ToureventPK delete(ToureventPK id) {
         Tourevent tourevent = em.find(Tourevent.class, id);
 
         try {
             if (tourevent == null) {
                 LOG.warn("Tourevent is null");
+
+                return null;
             }
             else {
                 LOG.debug("Tourevent is not null");
 
                 em.remove(tourevent);
                 LOG.info("Tourevent [" + tourevent.getId().toString() + "] deleted");
+
+                return tourevent.getId();
             }
         }
         catch (Exception ex) {
