@@ -1,6 +1,9 @@
 /IACH-7-ejb/build/
 /IACH-7-ejb/dist/
+/IACH-7-ejb/nbproject/private
 /build/
 /IACH-7-war/build/
 /IACH-7-war/dist/
+/IACH-7-war/nbproject/private
 /dist/
+/nbproject/private
