@@ -1,5 +1,7 @@
 package com.mycompany.iach7.loadingtackle.unitloaddevice.entity;
 
+import com.mycompany.iach7.util.GuiMasterData;
+import com.mycompany.iach7.util.dttm.DttmMakeHelper;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Basic;
@@ -20,7 +22,7 @@ import javax.persistence.Version;
 @Table(name = "ULDTYPE", schema = "IACH7")
 @NamedQueries({
     @NamedQuery(name = "Uldtype.findAll", query = "SELECT u FROM Uldtype u")})
-public class Uldtype implements Serializable {
+public class Uldtype extends GuiMasterData implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -56,22 +58,6 @@ public class Uldtype implements Serializable {
     @Column(name = "DOORSIDE")
     private int doorside;
 
-    @Basic(optional = false)
-    @Column(name = "CREADTTM")
-    private String creadttm;
-
-    @Basic(optional = false)
-    @Column(name = "CREAUSER")
-    private String creauser;
-
-    @Basic(optional = false)
-    @Column(name = "UPDTDTTM")
-    private String updtdttm;
-
-    @Basic(optional = false)
-    @Column(name = "UPDTUSER")
-    private String updtuser;
-
     @Version
     @Basic(optional = false)
     private int version;
@@ -81,13 +67,16 @@ public class Uldtype implements Serializable {
     private Uldshape shape;
 
     public Uldtype() {
+        super();
     }
 
     public Uldtype(String uldtype) {
         this.uldtype = uldtype;
+        super.setUpdtDttm(DttmMakeHelper.makeDttm());
+        super.setUpdtGuiUser("SYSTEM");
     }
 
-    public Uldtype(String uldtype, String descr, int theoleng, int theohght, int tarewght, int nelleng, int welleng, int doorside, String creadttm, String creauser, String updtdttm, String updtuser, Uldshape shape) {
+    public Uldtype(String uldtype, String descr, int theoleng, int theohght, int tarewght, int nelleng, int welleng, int doorside, String updtdttm, String updtuser, Uldshape shape) {
         this.uldtype = uldtype;
         this.descr = descr;
         this.theoleng = theoleng;
@@ -96,11 +85,23 @@ public class Uldtype implements Serializable {
         this.nelleng = nelleng;
         this.welleng = welleng;
         this.doorside = doorside;
-        this.creadttm = creadttm;
-        this.creauser = creauser;
-        this.updtdttm = updtdttm;
-        this.updtuser = updtuser;
         this.shape = shape;
+        super.setUpdtDttm(updtdttm);
+        super.setUpdtGuiUser(updtuser);
+    }
+
+    public Uldtype(String uldtype, String descr, int theoleng, int theohght, int tarewght, int nelleng, int welleng, int doorside, Uldshape shape) {
+        this.uldtype = uldtype;
+        this.descr = descr;
+        this.theoleng = theoleng;
+        this.theohght = theohght;
+        this.tarewght = tarewght;
+        this.nelleng = nelleng;
+        this.welleng = welleng;
+        this.doorside = doorside;
+        this.shape = shape;
+        super.setUpdtDttm(DttmMakeHelper.makeDttm());
+        super.setUpdtGuiUser("SYSTEM");
     }
 
     public String getUldtype() {
@@ -167,43 +168,11 @@ public class Uldtype implements Serializable {
         this.doorside = doorside;
     }
 
-    public String getCreadttm() {
-        return creadttm;
-    }
-
-    public void setCreadttm(String creadttm) {
-        this.creadttm = creadttm;
-    }
-
-    public String getCreauser() {
-        return creauser;
-    }
-
-    public void setCreauser(String creauser) {
-        this.creauser = creauser;
-    }
-
-    public String getUpdtdttm() {
-        return updtdttm;
-    }
-
-    public void setUpdtdttm(String updtdttm) {
-        this.updtdttm = updtdttm;
-    }
-
-    public String getUpdtuser() {
-        return updtuser;
-    }
-
-    public void setUpdtuser(String updtuser) {
-        this.updtuser = updtuser;
-    }
-
     public int getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    protected void setVersion(int version) {
         this.version = version;
     }
 
