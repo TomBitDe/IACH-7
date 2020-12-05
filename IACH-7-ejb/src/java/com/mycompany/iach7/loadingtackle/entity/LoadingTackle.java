@@ -107,27 +107,27 @@ public class LoadingTackle implements Serializable {
         this.comment = comment;
     }
 
-    public int getxDim() {
+    public int getXDim() {
         return xDim;
     }
 
-    public void setxDim(int xDim) {
+    public void setXDim(int xDim) {
         this.xDim = xDim;
     }
 
-    public int getyDim() {
+    public int getYDim() {
         return yDim;
     }
 
-    public void setyDim(int yDim) {
+    public void setYDim(int yDim) {
         this.yDim = yDim;
     }
 
-    public int getzDim() {
+    public int getZDim() {
         return zDim;
     }
 
-    public void setzDim(int zDim) {
+    public void setZDim(int zDim) {
         this.zDim = zDim;
     }
 
