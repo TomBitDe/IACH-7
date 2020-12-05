@@ -84,7 +84,7 @@ public class AudittrailManagerBean implements AudittrailManager {
      * {@inheritDoc}
      */
     @Override
-    public void delete(long id) {
+    public Audittrail delete(long id) {
         Audittrail aTrail = em.find(Audittrail.class, id);
 
         if (aTrail == null) {
@@ -92,10 +92,12 @@ public class AudittrailManagerBean implements AudittrailManager {
         }
         else {
             log.debug("Audittrail is not null");
+
+            em.remove(aTrail);
+            log.info("Audittrail [" + id + "] deleted");
         }
 
-        em.remove(aTrail);
-        log.info("Audittrail [" + id + "] deleted");
+        return aTrail;
     }
 
     /**

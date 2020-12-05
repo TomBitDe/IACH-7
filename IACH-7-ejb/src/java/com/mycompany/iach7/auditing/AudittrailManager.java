@@ -61,8 +61,10 @@ public interface AudittrailManager {
      * Delete an audittrail entry by its id
      *
      * @param id the id of the entry to delete
+     *
+     * @return the deleted Audittrail or null
      */
-    public void delete(long id);
+    public Audittrail delete(long id);
 
     /**
      * Delete audittrail entry in a date/time range

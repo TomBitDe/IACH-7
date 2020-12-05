@@ -110,7 +110,7 @@ public class AudittrailServiceBean implements AudittrailService {
     @Override
     public void delete(AudittrailVO aTrailVO) {
         if (aTrailVO == null) {
-            log.fatal("Invalid PARAM [aTrailVO is null]");
+            log.error("Invalid PARAM [aTrailVO == null]");
             return;
         }
         log.info("Delete " + aTrailVO.toString());
