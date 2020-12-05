@@ -1,5 +1,6 @@
 package com.mycompany.iach7.tour;
 
+import com.mycompany.iach7.auditing.AuditingInterceptor;
 import com.mycompany.iach7.tour.entity.Eventstat;
 import com.mycompany.iach7.tour.entity.Lap;
 import com.mycompany.iach7.tour.entity.LapPK;
@@ -15,6 +16,7 @@ import java.util.List;
 import javax.ejb.EJBException;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -25,6 +27,7 @@ import org.apache.log4j.Logger;
  */
 @Stateless
 @Local(ToureventManager.class)
+@Interceptors(AuditingInterceptor.class)
 public class ToureventManagerBean implements ToureventManager {
     private static final Logger LOG = Logger.getLogger(ToureventManagerBean.class);
 
