@@ -56,6 +56,7 @@ public class SlaTimeManagerBeanNGTest {
     public void testGetAll() throws Exception {
         System.out.println("getAll");
 
+        // Test result depends on testCreate
         List<SlaTime> result = slaTime.getAll();
         assertTrue(result.size() == 3);
     }
@@ -69,9 +70,11 @@ public class SlaTimeManagerBeanNGTest {
     public void testGetSlaTimesByProvider() throws Exception {
         System.out.println("getSlaTimesByProvider");
 
+        // Test result depends on testCreate
         List<SlaTime> result = slaTime.getSlaTimesByProvider("FEDEX");
         assertTrue(result.size() == 3);
 
+        // Test result is independent from testCreate
         result = slaTime.getSlaTimesByProvider("UNKNOWN");
         assertTrue(result.isEmpty());
     }
@@ -85,9 +88,11 @@ public class SlaTimeManagerBeanNGTest {
     public void testGetSlaTimesByCustomer() throws Exception {
         System.out.println("getSlaTimesByCustomer");
 
+        // Test result depends on testCreate
         List<SlaTime> result = slaTime.getSlaTimesByCustomer("SYMRISE");
         assertTrue(result.size() == 1);
 
+        // Test result is independent from testCreate
         result = slaTime.getSlaTimesByCustomer("UNKNOWN");
         assertTrue(result.isEmpty());
     }
@@ -163,6 +168,7 @@ public class SlaTimeManagerBeanNGTest {
     public void testGetSlaTimesByQuery() throws Exception {
         System.out.println("getSlaTimesByQuery");
 
+        // Test result depends on testCreate
         List<SlaTime> result = slaTime.getSlaTimesByQuery("FEDEX", "%");
         assertTrue(result.size() == 3);
 
