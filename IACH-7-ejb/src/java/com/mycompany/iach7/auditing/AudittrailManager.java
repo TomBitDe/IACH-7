@@ -62,7 +62,7 @@ public interface AudittrailManager {
      *
      * @param id the id of the entry to delete
      *
-     * @return the deleted Audittrail or null
+     * @return the deleted Audittrail or null if there was no Audittrail for the given id
      */
     public Audittrail delete(long id);
 

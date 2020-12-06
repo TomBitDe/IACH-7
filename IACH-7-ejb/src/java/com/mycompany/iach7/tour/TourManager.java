@@ -73,6 +73,8 @@ public interface TourManager {
      * Delete a tour by its tourId.
      *
      * @param tourId the tourId
+     *
+     * @return the deleted Tour or null if there was no Tour for the given tourId
      */
     public Tour delete(String tourId);
 }
