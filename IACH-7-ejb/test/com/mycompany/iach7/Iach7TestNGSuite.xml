@@ -5,6 +5,7 @@
     <test name="com.mycompany.iach7 suite">
         <packages>
             <package name="com.mycompany.iach7.dummy"/>
+            <pachage name="com.mycompany.iach7.slatime"/>
             <package name="com.mycompany.iach7.tour"/>
             <package name="com.mycompany.iach7.truck"/>
             <package name="com.mycompany.iach7.trucker"/>

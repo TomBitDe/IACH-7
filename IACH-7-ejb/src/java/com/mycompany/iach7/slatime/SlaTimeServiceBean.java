@@ -53,13 +53,13 @@ public class SlaTimeServiceBean implements SlaTimeService {
             slaTime.setUpdtDttm(slaTimeVO.getUpdtDttm());
         }
         else {
-            slaTime = new SlaTime();
-
-            slaTime.setId(new SlaTimePK(slaTimeVO.getProvider(), slaTimeVO.getCustomer()));
-            slaTime.setSlaTime(slaTimeVO.getSlaTime());
-            slaTime.setComment(slaTimeVO.getComment());
-            slaTime.setUpdtGuiUser(slaTimeVO.getUpdtGuiUser());
-            slaTime.setUpdtDttm(slaTimeVO.getUpdtDttm());
+            slaTime = new SlaTime(
+                    new SlaTimePK(slaTimeVO.getProvider(), slaTimeVO.getCustomer()),
+                    slaTimeVO.getSlaTime(),
+                    slaTimeVO.getComment(),
+                    slaTimeVO.getUpdtDttm(),
+                    slaTimeVO.getUpdtGuiUser()
+            );
 
             log.info("Insert " + slaTime.toString());
             slaTimeManager.create(slaTime);
