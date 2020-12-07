@@ -31,7 +31,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
     private String slaTime;
 
     @Basic(optional = false)
-    @Column(name = "COM1_TEXT")
+    @Column(name = "COMMENT")
     private String comment;
 
     @Version
