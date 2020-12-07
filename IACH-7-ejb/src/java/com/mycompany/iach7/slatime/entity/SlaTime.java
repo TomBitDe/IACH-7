@@ -8,6 +8,9 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -28,7 +31,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "SLATIME")
-    private String slaTime;
+    private int slaTime;
 
     @Basic(optional = false)
     @Column(name = "COMMENT")
@@ -38,17 +41,21 @@ public class SlaTime extends GuiMasterData implements Serializable {
     @Basic(optional = false)
     private int version;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SLA_ID")
+    private ServiceLevelAgreement sla;
+
     public SlaTime() {
         super();
 
         this.id = new SlaTimePK("", "");
-        this.slaTime = "";
+        this.slaTime = 0;
         this.comment = "";
         super.setUpdtDttm("");
         super.setUpdtGuiUser("");
     }
 
-    public SlaTime(SlaTimePK id, String slaTime, String comment, String updtDttm, String updtGuiUser) {
+    public SlaTime(SlaTimePK id, int slaTime, String comment, String updtDttm, String updtGuiUser) {
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -56,7 +63,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super.setUpdtGuiUser(updtGuiUser);
     }
 
-    public SlaTime(SlaTimePK id, String slaTime, String comment, String updtGuiUser) {
+    public SlaTime(SlaTimePK id, int slaTime, String comment, String updtGuiUser) {
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -64,7 +71,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super.setUpdtGuiUser(updtGuiUser);
     }
 
-    public SlaTime(SlaTimePK id, String slaTime, String comment) {
+    public SlaTime(SlaTimePK id, int slaTime, String comment) {
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -72,7 +79,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super.setUpdtGuiUser("SYSTEM");
     }
 
-    public SlaTime(SlaTimePK id, String slaTime) {
+    public SlaTime(SlaTimePK id, int slaTime) {
         this.id = id;
         this.slaTime = slaTime;
         this.comment = "";
@@ -88,11 +95,21 @@ public class SlaTime extends GuiMasterData implements Serializable {
         this.id = id;
     }
 
-    public String getSlaTime() {
+    /**
+     * Get the SlaTime
+     *
+     * @return the time value in minutes
+     */
+    public int getSlaTime() {
         return slaTime;
     }
 
-    public void setSlaTime(String slaTime) {
+    /**
+     * Set the SlaTime
+     *
+     * @param slaTime the value in minutes
+     */
+    public void setSlaTime(int slaTime) {
         this.slaTime = slaTime;
     }
 

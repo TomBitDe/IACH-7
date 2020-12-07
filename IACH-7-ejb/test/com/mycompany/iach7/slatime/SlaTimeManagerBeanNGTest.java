@@ -2,7 +2,6 @@ package com.mycompany.iach7.slatime;
 
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import com.mycompany.iach7.slatime.entity.SlaTimePK;
-import com.mycompany.iach7.util.dttm.DttmMakeHelper;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import static org.testng.Assert.*;
@@ -122,19 +121,19 @@ public class SlaTimeManagerBeanNGTest {
     public void testCreate() throws Exception {
         System.out.println("create");
 
-        SlaTime expResult = new SlaTime(ID_SYMRISE, DttmMakeHelper.makeDttm(), "Test SLA Time");
+        SlaTime expResult = new SlaTime(ID_SYMRISE, 60, "Test SLA Time");
 
         slaTime.create(expResult);
 
         SlaTime result = slaTime.getById(ID_SYMRISE);
         assertEquals(result, expResult);
 
-        expResult = new SlaTime(ID_BASF, DttmMakeHelper.makeDttm(), "Test SLA Time");
+        expResult = new SlaTime(ID_BASF, 45, "Test SLA Time");
         slaTime.create(expResult);
         result = slaTime.getById(ID_BASF);
         assertEquals(result, expResult);
 
-        expResult = new SlaTime(ID_BAYER, DttmMakeHelper.makeDttm(), "Test SLA Time");
+        expResult = new SlaTime(ID_BAYER, 120, "Test SLA Time");
         slaTime.create(expResult);
         result = slaTime.getById(ID_BAYER);
         assertEquals(result, expResult);

@@ -11,12 +11,12 @@ public class SlaTimeVO implements Serializable {
 
     private String provider;
     private String customer;
-    private String slaTime;
+    private int slaTime;
     private String comment;
     private String updtDttm;
     private String updtGuiUser;
 
-    public SlaTimeVO(String provider, String customer, String slaTime, String comment, String updtDttm, String updtGuiUser) {
+    public SlaTimeVO(String provider, String customer, int slaTime, String comment, String updtDttm, String updtGuiUser) {
         this.provider = provider;
         this.customer = customer;
         this.slaTime = slaTime;
@@ -41,11 +41,11 @@ public class SlaTimeVO implements Serializable {
         this.customer = customer;
     }
 
-    public String getSlaTime() {
+    public int getSlaTime() {
         return slaTime;
     }
 
-    public void setSlaTime(String slaTime) {
+    public void setSlaTime(int slaTime) {
         this.slaTime = slaTime;
     }
 

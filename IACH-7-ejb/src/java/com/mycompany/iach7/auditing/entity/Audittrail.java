@@ -31,9 +31,9 @@ public class Audittrail implements Serializable {
 
     @Id
     @Column(name = "ID")
-    @TableGenerator(name = "audittrailIdStore", table = "AUDITTRAIL_ID_STORE",
-             pkColumnName = "AUDITTRAIL_SEQ_NAME", pkColumnValue = "AUDITTRAIL.ID",
-             valueColumnName = "AUDITTRAIL_SEQ_VALUE", initialValue = 1, allocationSize = 1)
+    @TableGenerator(name = "audittrailIdStore", table = "AUDITTRAIL_ID_STORE", schema = "IACH7",
+                    pkColumnName = "AUDITTRAIL_SEQ_NAME", pkColumnValue = "AUDITTRAIL.ID",
+                    valueColumnName = "AUDITTRAIL_SEQ_VALUE", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "audittrailIdStore")
     private long id;
 

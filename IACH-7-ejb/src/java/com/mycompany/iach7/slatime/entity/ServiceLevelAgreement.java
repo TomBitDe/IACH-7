@@ -1,6 +1,8 @@
 package com.mycompany.iach7.slatime.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,11 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
- * A Sevice Level Agreement
+ * A Service Level Agreement
  */
 @Entity
 @Table(name = "SLA", schema = "IACH7")
@@ -29,6 +32,9 @@ public class ServiceLevelAgreement implements Serializable {
     @Version
     @Basic(optional = false)
     private int version;
+
+    @OneToMany(mappedBy = "sla", orphanRemoval = true)
+    private List<SlaTime> slaTimeItems = new ArrayList<>();
 
     public String getId() {
         return id;
