@@ -15,7 +15,7 @@ import javax.persistence.Version;
  * A Sevice Level Agreement
  */
 @Entity
-@Table(name = "SLA")
+@Table(name = "SLA", schema = "IACH7")
 @NamedQueries({
     @NamedQuery(name = "ServiceLevelAgreement.findAll", query = "SELECT s FROM ServiceLevelAgreement s order by s.id")})
 public class ServiceLevelAgreement implements Serializable {
