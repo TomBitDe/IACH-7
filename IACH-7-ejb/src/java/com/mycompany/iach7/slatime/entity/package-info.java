@@ -7,8 +7,8 @@
  * <p>
  * A ServiceLevelAgreement (SLA) is the contract type.<br>
  * A SlaTime is the time to fullfil a contract type<br>
- * One SLA is assigned to 0..N SlaTime. An SlaTime has 0 SLA. This is defined as @OneToMany and @ManyToOne dependency in
- * the Entities.
+ * One SLA is assigned to 0..N SlaTime. An SlaTime has 0 or 1 SLA. This is defined as @OneToMany and @ManyToOne
+ * dependency in the Entities.
  * <p>
  * <strong>CAUTION</strong>: under construction.
  */
