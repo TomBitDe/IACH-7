@@ -3,6 +3,7 @@ package com.mycompany.iach7.slatime;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import com.mycompany.iach7.slatime.entity.SlaTimePK;
 import java.util.List;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,8 +14,9 @@ import org.apache.log4j.Logger;
  * Manage Service Level Agreement Times
  */
 @Stateless
+@Local(SlaTimeManager.class)
 public class SlaTimeManagerBean implements SlaTimeManager {
-    private static final Logger log = Logger.getLogger(SlaTimeManagerBean.class.getName());
+    private static final Logger LOG = Logger.getLogger(SlaTimeManagerBean.class.getName());
 
     @PersistenceContext
     private EntityManager em;
@@ -33,7 +35,7 @@ public class SlaTimeManagerBean implements SlaTimeManager {
     @Override
     public List<SlaTime> getAll() {
         List<SlaTime> resultList = em.createQuery("select s FROM SlaTime s ORDER BY s.id.provider, s.id.customer").getResultList();
-        log.info("Found Slats: " + resultList.size());
+        LOG.info("Found SlaTimes: " + resultList.size());
 
         return resultList;
     }
@@ -48,7 +50,7 @@ public class SlaTimeManagerBean implements SlaTimeManager {
         query.setParameter("provider", provider);
 
         List<SlaTime> slaTimes = query.getResultList();
-        log.info("Found SlaTimes: " + slaTimes.size());
+        LOG.info("Found SlaTimes: " + slaTimes.size());
 
         return slaTimes;
     }
@@ -63,7 +65,7 @@ public class SlaTimeManagerBean implements SlaTimeManager {
         query.setParameter("customer", customer);
 
         List<SlaTime> slaTimes = query.getResultList();
-        log.info("Found SlaTimes: " + slaTimes.size());
+        LOG.info("Found SlaTimes: " + slaTimes.size());
 
         return slaTimes;
     }
@@ -73,7 +75,7 @@ public class SlaTimeManagerBean implements SlaTimeManager {
      */
     @Override
     public SlaTime getById(SlaTimePK pk) {
-        log.info("getById [" + pk + "]");
+        LOG.info("getById [" + pk + "]");
         return em.find(SlaTime.class, pk);
     }
 
@@ -93,13 +95,13 @@ public class SlaTimeManagerBean implements SlaTimeManager {
         SlaTime slaTime = em.find(SlaTime.class, id);
 
         if (slaTime == null) {
-            log.warn("SlaTime is null");
+            LOG.warn("SlaTime is null");
         }
         else {
-            log.debug("SlaTime is not null");
+            LOG.debug("SlaTime is not null");
 
             em.remove(slaTime);
-            log.info("SlaTime [" + id + "] deleted");
+            LOG.info("SlaTime [" + id + "] deleted");
         }
 
         return slaTime;
@@ -119,7 +121,7 @@ public class SlaTimeManagerBean implements SlaTimeManager {
         query.setParameter("customer", customer);
 
         List<SlaTime> slaTimes = query.getResultList();
-        log.info("Found SlaTimes: " + slaTimes.size());
+        LOG.info("Found SlaTimes: " + slaTimes.size());
 
         return slaTimes;
     }

@@ -3,12 +3,10 @@ package com.mycompany.iach7.slatime;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import com.mycompany.iach7.slatime.entity.SlaTimePK;
 import java.util.List;
-import javax.ejb.Local;
 
 /**
  * Handle local access for Service Level Agreement Times
  */
-@Local
 public interface SlaTimeManager {
     /**
      * Get a list of all SlaTimes.

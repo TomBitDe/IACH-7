@@ -1,8 +1,9 @@
 package com.mycompany.iach7.slatime.entity;
 
+import com.mycompany.iach7.util.GuiMasterData;
+import com.mycompany.iach7.util.dttm.DttmMakeHelper;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ import javax.persistence.Version;
 @Table(name = "SLA", schema = "IACH7")
 @NamedQueries({
     @NamedQuery(name = "ServiceLevelAgreement.findAll", query = "SELECT s FROM ServiceLevelAgreement s order by s.id")})
-public class ServiceLevelAgreement implements Serializable {
+public class ServiceLevelAgreement extends GuiMasterData implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID")
@@ -34,7 +35,32 @@ public class ServiceLevelAgreement implements Serializable {
     private int version;
 
     @OneToMany(mappedBy = "sla", orphanRemoval = true)
-    private List<SlaTime> slaTimeItems = new ArrayList<>();
+    private Collection<SlaTime> slaTimeItems;
+
+    public ServiceLevelAgreement() {
+        super();
+    }
+
+    public ServiceLevelAgreement(String id) {
+        this.id = id;
+        this.descr = "";
+        super.setUpdtDttm(DttmMakeHelper.makeDttm());
+        super.setUpdtGuiUser("SYSTEM");
+    }
+
+    public ServiceLevelAgreement(String id, String descr) {
+        this.id = id;
+        this.descr = descr;
+        super.setUpdtDttm(DttmMakeHelper.makeDttm());
+        super.setUpdtGuiUser("SYSTEM");
+    }
+
+    public ServiceLevelAgreement(String id, String descr, String updtGuiUser) {
+        this.id = id;
+        this.descr = descr;
+        super.setUpdtDttm(DttmMakeHelper.makeDttm17());
+        super.setUpdtGuiUser(updtGuiUser);
+    }
 
     public String getId() {
         return id;
@@ -58,6 +84,14 @@ public class ServiceLevelAgreement implements Serializable {
 
     protected void setVersion(int version) {
         this.version = version;
+    }
+
+    public Collection<SlaTime> getSlaTimeItems() {
+        return slaTimeItems;
+    }
+
+    public void setSlaTimeItems(Collection<SlaTime> slaTimeItems) {
+        this.slaTimeItems = slaTimeItems;
     }
 
     @Override

@@ -129,6 +129,14 @@ public class SlaTime extends GuiMasterData implements Serializable {
         this.version = version;
     }
 
+    public ServiceLevelAgreement getSla() {
+        return sla;
+    }
+
+    public void setSla(ServiceLevelAgreement sla) {
+        this.sla = sla;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -173,6 +181,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         sb.append(", slaTime=").append(slaTime);
         sb.append(", comment=").append(comment);
         sb.append(", version=").append(version);
+        sb.append(", sla=").append(sla);
         sb.append('}');
         return sb.toString();
     }

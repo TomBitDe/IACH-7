@@ -122,9 +122,7 @@ public class SlaTimeManagerBeanNGTest {
         System.out.println("create");
 
         SlaTime expResult = new SlaTime(ID_SYMRISE, 60, "Test SLA Time");
-
         slaTime.create(expResult);
-
         SlaTime result = slaTime.getById(ID_SYMRISE);
         assertEquals(result, expResult);
 
