@@ -2,7 +2,6 @@ package com.mycompany.iach7.slatime;
 
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -56,7 +55,7 @@ public interface SlaManager {
      *
      * @param id the sla id used by the SlaTimes
      *
-     * @return the collection of matching SlaTimes
+     * @return the List of matching SlaTimes
      */
-    public Collection<SlaTime> getSlaTimes(String id);
+    public List<SlaTime> getSlaTimes(String id);
 }

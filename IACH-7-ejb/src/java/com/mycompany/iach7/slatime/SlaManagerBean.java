@@ -2,7 +2,6 @@ package com.mycompany.iach7.slatime;
 
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
-import java.util.Collection;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -97,7 +96,7 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public Collection<SlaTime> getSlaTimes(String id) {
+    public List<SlaTime> getSlaTimes(String id) {
         return em.find(ServiceLevelAgreement.class, id).getSlaTimeItems();
     }
 }

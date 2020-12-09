@@ -2,7 +2,6 @@ package com.mycompany.iach7.slatime;
 
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import static org.testng.Assert.*;
@@ -52,8 +51,8 @@ public class SlaManagerBeanNGTest {
      * @throws java.lang.Exception
      */
     @Test(priority = 0)
-    public void testCreateSla() throws Exception {
-        System.out.println("createSla");
+    public void testCreate() throws Exception {
+        System.out.println("create");
 
         ServiceLevelAgreement expResult = new ServiceLevelAgreement(PICKEDUP_ID, "Test 1");
         sla.create(expResult);
@@ -156,7 +155,7 @@ public class SlaManagerBeanNGTest {
     public void testGetSlaTimes() throws Exception {
         System.out.println("getSlaTimes");
 
-        List<SlaTime> result = new ArrayList(sla.getSlaTimes(PICKEDUP_ID));
+        List<SlaTime> result = sla.getSlaTimes(PICKEDUP_ID);
         assertTrue(result.isEmpty());
     }
 }
