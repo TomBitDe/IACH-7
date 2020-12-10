@@ -42,6 +42,8 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
     }
 
     public ServiceLevelAgreement(String id) {
+        super();
+
         this.id = id;
         this.descr = "";
         super.setUpdtDttm(DttmMakeHelper.makeDttm());
@@ -49,6 +51,8 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
     }
 
     public ServiceLevelAgreement(String id, String descr) {
+        super();
+
         this.id = id;
         this.descr = descr;
         super.setUpdtDttm(DttmMakeHelper.makeDttm());

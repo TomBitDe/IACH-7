@@ -3,7 +3,8 @@ package com.mycompany.iach7.slatime.entity;
 import java.io.Serializable;
 import javax.persistence.Embeddable;
 
-/** Primary Key for SlaTime entries
+/**
+ * Primary Key for SlaTime entries
  */
 @Embeddable
 public class SlaTimePK implements Serializable {
@@ -13,9 +14,12 @@ public class SlaTimePK implements Serializable {
     protected String customer;
 
     public SlaTimePK() {
+        super();
     }
 
     public SlaTimePK(String provider, String customer) {
+        super();
+
         this.provider = provider;
         this.customer = customer;
     }

@@ -56,6 +56,8 @@ public class SlaTime extends GuiMasterData implements Serializable {
     }
 
     public SlaTime(SlaTimePK id, int slaTime, String comment, String updtDttm, String updtGuiUser) {
+        super();
+
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -64,6 +66,8 @@ public class SlaTime extends GuiMasterData implements Serializable {
     }
 
     public SlaTime(SlaTimePK id, int slaTime, String comment, String updtGuiUser) {
+        super();
+
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -72,6 +76,8 @@ public class SlaTime extends GuiMasterData implements Serializable {
     }
 
     public SlaTime(SlaTimePK id, int slaTime, String comment) {
+        super();
+
         this.id = id;
         this.slaTime = slaTime;
         this.comment = comment;
@@ -80,6 +86,8 @@ public class SlaTime extends GuiMasterData implements Serializable {
     }
 
     public SlaTime(SlaTimePK id, int slaTime) {
+        super();
+
         this.id = id;
         this.slaTime = slaTime;
         this.comment = "";
