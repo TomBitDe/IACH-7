@@ -29,9 +29,11 @@ public class Items implements Serializable {
     private Cart cart;
 
     public Items() {
+        super();
     }
 
     public Items(Cart cart) {
+        super();
         this.cart = cart;
     }
 

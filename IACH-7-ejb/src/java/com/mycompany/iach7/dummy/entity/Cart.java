@@ -26,6 +26,20 @@ public class Cart implements Serializable {
     @OneToMany(mappedBy = "cart", orphanRemoval = true)
     private Set<Items> items;
 
+    public Cart() {
+        super();
+    }
+
+    public Cart(Items item) {
+        super();
+        items.add(item);
+    }
+
+    public Cart(Set<Items> items) {
+        super();
+        items.addAll(items);
+    }
+
     public Long getId() {
         return id;
     }
@@ -45,6 +59,13 @@ public class Cart implements Serializable {
     public void addItems(Items item) {
         this.items.add(item);
         item.setCart(this);
+    }
+
+    public void addItems(Set<Items> items) {
+        this.items.addAll(items);
+        items.forEach(elem -> {
+            elem.setCart(this);
+        });
     }
 
     @Override

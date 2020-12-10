@@ -11,7 +11,7 @@ public interface CartManager {
 
     void edit(Cart cart);
 
-    void remove(Cart cart);
+    Cart remove(Cart cart);
 
     Cart find(Object id);
 

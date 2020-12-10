@@ -96,5 +96,30 @@ public class CartItemsManagerBeanNGTest {
     @Test(priority = 99)
     public void testDeleteCartItems() {
         System.out.println("testDeleteCartItems");
+
+        Cart cart1 = cart.findAll().get(0);
+        assertNotNull(cart1);
+        Cart result = cart.remove(cart1);
+        assertNotNull(result);
+        assertNull(cart.find(result.getId()));
+
+        Cart cart2 = cart.findAll().get(0);
+        assertNotNull(cart2);
+        result = cart.remove(cart2);
+        assertNotNull(result);
+        assertNull(cart.find(result.getId()));
+
+        assertTrue(items.findAll().isEmpty());
+
+        // Cart result has no items because all references are deleted
+        assertTrue(result.getItems().isEmpty());
+
+        cart.create(result);
+        Cart otherResult = cart.find(result.getId());
+        assertEquals(otherResult, result);
+
+        result = cart.remove(result);
+        assertNotNull(result);
+        assertNull(cart.find(result.getId()));
     }
 }

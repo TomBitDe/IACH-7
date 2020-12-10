@@ -11,7 +11,7 @@ public interface ItemsManager {
 
     void edit(Items items);
 
-    void remove(Items items);
+    Items remove(Items items);
 
     Items find(Object id);
 

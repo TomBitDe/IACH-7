@@ -23,8 +23,9 @@ public abstract class AbstractManager<T> {
         getEntityManager().merge(entity);
     }
 
-    public void remove(T entity) {
+    public T remove(T entity) {
         getEntityManager().remove(getEntityManager().merge(entity));
+        return entity;
     }
 
     public T find(Object id) {
