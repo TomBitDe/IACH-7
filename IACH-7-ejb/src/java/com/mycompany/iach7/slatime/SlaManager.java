@@ -3,6 +3,7 @@ package com.mycompany.iach7.slatime;
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Handle local access for Service Level Agreements
@@ -55,7 +56,7 @@ public interface SlaManager {
      *
      * @param id the sla id used by the SlaTimes
      *
-     * @return the List of matching SlaTimes
+     * @return the Set of matching SlaTimes
      */
-    public List<SlaTime> getSlaTimes(String id);
+    public Set<SlaTime> getSlaTimes(String id);
 }

@@ -3,8 +3,8 @@ package com.mycompany.iach7.slatime.entity;
 import com.mycompany.iach7.util.GuiMasterData;
 import com.mycompany.iach7.util.dttm.DttmMakeHelper;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +35,7 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
     private int version;
 
     @OneToMany(mappedBy = "sla", orphanRemoval = true)
-    private List<SlaTime> slaTimeItems;
+    private Set<SlaTime> slaTimeItems;
 
     public ServiceLevelAgreement() {
         super();
@@ -90,12 +90,24 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
         this.version = version;
     }
 
-    public List<SlaTime> getSlaTimeItems() {
+    public Set<SlaTime> getSlaTimeItems() {
         return slaTimeItems;
     }
 
-    public void setSlaTimeItems(List<SlaTime> slaTimeItems) {
+    public void setSlaTimeItems(Set<SlaTime> slaTimeItems) {
         this.slaTimeItems = slaTimeItems;
+    }
+
+    public void addSlaTimeItem(SlaTime item) {
+        this.slaTimeItems.add(item);
+        item.setSla(this);
+    }
+
+    public void addSlaTimeItems(Set<SlaTime> items) {
+        this.slaTimeItems.addAll(items);
+        items.forEach(elem -> {
+            elem.setSla(this);
+        });
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.mycompany.iach7.slatime;
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.embeddable.EJBContainer;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -155,7 +156,7 @@ public class SlaManagerBeanNGTest {
     public void testGetSlaTimes() throws Exception {
         System.out.println("getSlaTimes");
 
-        List<SlaTime> result = sla.getSlaTimes(PICKEDUP_ID);
+        Set<SlaTime> result = sla.getSlaTimes(PICKEDUP_ID);
         assertTrue(result.isEmpty());
     }
 }

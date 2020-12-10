@@ -3,6 +3,7 @@ package com.mycompany.iach7.slatime;
 import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -96,7 +97,7 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public List<SlaTime> getSlaTimes(String id) {
+    public Set<SlaTime> getSlaTimes(String id) {
         return em.find(ServiceLevelAgreement.class, id).getSlaTimeItems();
     }
 }
