@@ -1,6 +1,6 @@
 package com.mycompany.iach7.slatime;
 
-import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
+import com.mycompany.iach7.slatime.entity.Sla;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import java.util.List;
 import java.util.Set;
@@ -14,7 +14,7 @@ public interface SlaManager {
      *
      * @param sla the Sla
      */
-    public void create(ServiceLevelAgreement sla);
+    public void create(Sla sla);
 
     /**
      * Delete an Sla by its PK id.
@@ -23,14 +23,14 @@ public interface SlaManager {
      *
      * @return the deleted Sla or null if nothing exists for the given id
      */
-    public ServiceLevelAgreement delete(String id);
+    public Sla delete(String id);
 
     /**
      * Get a list of all Sla's.
      *
      * @return the list of all Sla's
      */
-    public List<ServiceLevelAgreement> getAll();
+    public List<Sla> getAll();
 
     /**
      * Get a single Sla by its id.
@@ -39,7 +39,7 @@ public interface SlaManager {
      *
      * @return the related Sla
      */
-    public ServiceLevelAgreement getById(String id);
+    public Sla getById(String id);
 
     /**
      * Get Sla's by query.
@@ -49,7 +49,7 @@ public interface SlaManager {
      *
      * @return the list of matching Sla's
      */
-    public List<ServiceLevelAgreement> getSlaByQuery(String id, String descr);
+    public List<Sla> getSlaByQuery(String id, String descr);
 
     /**
      * Get all SlaTimes using this Sla.

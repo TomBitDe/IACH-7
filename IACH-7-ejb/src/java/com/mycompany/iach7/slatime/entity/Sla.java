@@ -22,7 +22,7 @@ import javax.persistence.Version;
 @Table(name = "SLA", schema = "IACH7")
 @NamedQueries({
     @NamedQuery(name = "ServiceLevelAgreement.findAll", query = "SELECT s FROM ServiceLevelAgreement s order by s.id")})
-public class ServiceLevelAgreement extends GuiMasterData implements Serializable {
+public class Sla extends GuiMasterData implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID")
@@ -37,11 +37,11 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
     @OneToMany(mappedBy = "sla", orphanRemoval = true)
     private Set<SlaTime> slaTimeItems;
 
-    public ServiceLevelAgreement() {
+    public Sla() {
         super();
     }
 
-    public ServiceLevelAgreement(String id) {
+    public Sla(String id) {
         super();
 
         this.id = id;
@@ -50,7 +50,7 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
         super.setUpdtGuiUser("SYSTEM");
     }
 
-    public ServiceLevelAgreement(String id, String descr) {
+    public Sla(String id, String descr) {
         super();
 
         this.id = id;
@@ -59,7 +59,7 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
         super.setUpdtGuiUser("SYSTEM");
     }
 
-    public ServiceLevelAgreement(String id, String descr, String updtGuiUser) {
+    public Sla(String id, String descr, String updtGuiUser) {
         this.id = id;
         this.descr = descr;
         super.setUpdtDttm(DttmMakeHelper.makeDttm17());
@@ -127,7 +127,7 @@ public class ServiceLevelAgreement extends GuiMasterData implements Serializable
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ServiceLevelAgreement other = (ServiceLevelAgreement) obj;
+        final Sla other = (Sla) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

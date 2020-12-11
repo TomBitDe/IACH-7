@@ -43,7 +43,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SLA_ID")
-    private ServiceLevelAgreement sla;
+    private Sla sla;
 
     public SlaTime() {
         super();
@@ -137,11 +137,11 @@ public class SlaTime extends GuiMasterData implements Serializable {
         this.version = version;
     }
 
-    public ServiceLevelAgreement getSla() {
+    public Sla getSla() {
         return sla;
     }
 
-    public void setSla(ServiceLevelAgreement sla) {
+    public void setSla(Sla sla) {
         this.sla = sla;
     }
 

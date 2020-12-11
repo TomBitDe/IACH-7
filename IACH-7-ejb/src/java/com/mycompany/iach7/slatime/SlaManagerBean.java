@@ -1,6 +1,6 @@
 package com.mycompany.iach7.slatime;
 
-import com.mycompany.iach7.slatime.entity.ServiceLevelAgreement;
+import com.mycompany.iach7.slatime.entity.Sla;
 import com.mycompany.iach7.slatime.entity.SlaTime;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +30,7 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public void create(ServiceLevelAgreement sla) {
+    public void create(Sla sla) {
         em.persist(sla);
     }
 
@@ -38,8 +38,8 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public ServiceLevelAgreement delete(String id) {
-        ServiceLevelAgreement sla = em.find(ServiceLevelAgreement.class, id);
+    public Sla delete(String id) {
+        Sla sla = em.find(Sla.class, id);
 
         if (sla == null) {
             LOG.warn("Sla is null");
@@ -58,8 +58,8 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLevelAgreement> getAll() {
-        List<ServiceLevelAgreement> resultList = em.createNamedQuery("ServiceLevelAgreement.findAll")
+    public List<Sla> getAll() {
+        List<Sla> resultList = em.createNamedQuery("ServiceLevelAgreement.findAll")
                 .getResultList();
         LOG.info("Found Slas: " + resultList.size());
 
@@ -70,16 +70,16 @@ public class SlaManagerBean implements SlaManager {
      * {@inheritDoc}
      */
     @Override
-    public ServiceLevelAgreement getById(String id) {
+    public Sla getById(String id) {
         LOG.info("getById [" + id + "]");
-        return em.find(ServiceLevelAgreement.class, id);
+        return em.find(Sla.class, id);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<ServiceLevelAgreement> getSlaByQuery(String id, String descr) {
+    public List<Sla> getSlaByQuery(String id, String descr) {
         Query query = em.createQuery("select s FROM ServiceLevelAgreement s"
                 + " WHERE s.id like :id"
                 + "   AND s.descr like :descr"
@@ -87,7 +87,7 @@ public class SlaManagerBean implements SlaManager {
         query.setParameter("id", id);
         query.setParameter("descr", descr);
 
-        List<ServiceLevelAgreement> slaList = query.getResultList();
+        List<Sla> slaList = query.getResultList();
         LOG.info("Found Slas: " + slaList.size());
 
         return slaList;
@@ -98,6 +98,6 @@ public class SlaManagerBean implements SlaManager {
      */
     @Override
     public Set<SlaTime> getSlaTimes(String id) {
-        return em.find(ServiceLevelAgreement.class, id).getSlaTimeItems();
+        return em.find(Sla.class, id).getSlaTimeItems();
     }
 }

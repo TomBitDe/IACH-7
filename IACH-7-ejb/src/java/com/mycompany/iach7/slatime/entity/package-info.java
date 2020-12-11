@@ -12,6 +12,6 @@
  * One SLA is assigned to 0..N SlaTime. An SlaTime has 0 or 1 SLA. This is defined as @OneToMany and @ManyToOne
  * dependency in the Entities.
  * <p>
- * <strong>CAUTION</strong>: under construction.
+ * <strong>CAUTION</strong>: <strong>under construction</strong>.
  */
 package com.mycompany.iach7.slatime.entity;
