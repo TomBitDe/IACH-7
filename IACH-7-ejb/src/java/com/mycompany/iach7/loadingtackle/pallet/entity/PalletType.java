@@ -3,6 +3,7 @@ package com.mycompany.iach7.loadingtackle.pallet.entity;
 import com.mycompany.iach7.util.GuiMasterData;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,6 +24,13 @@ public class PalletType extends GuiMasterData implements Serializable {
     @Column(name = "PALLETTYPE")
     private String palletType;
 
+    /**
+     * The tare weight for this pallet type in [g]
+     */
+    @Basic(optional = false)
+    @Column(name = "TAREWEIGHT")
+    private long tareWeight;
+
     @Version
     @Basic(optional = false)
     private int version;
@@ -38,6 +46,22 @@ public class PalletType extends GuiMasterData implements Serializable {
         this.palletType = palletType;
     }
 
+    public long getTareWeight() {
+        return tareWeight;
+    }
+
+    public void setTareWeight(long tareWeight) {
+        this.tareWeight = tareWeight;
+    }
+
+    public List<Pallet> getPallets() {
+        return pallets;
+    }
+
+    public void setPallets(List<Pallet> pallets) {
+        this.pallets = pallets;
+    }
+
     public int getVersion() {
         return version;
     }
@@ -48,19 +72,32 @@ public class PalletType extends GuiMasterData implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (palletType != null ? palletType.hashCode() : 0);
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.palletType);
+        hash = 67 * hash + (int) (this.tareWeight ^ (this.tareWeight >>> 32));
+        hash = 67 * hash + this.version;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PalletType)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        PalletType other = (PalletType) object;
-        if ((this.palletType == null && other.palletType != null) || (this.palletType != null && !this.palletType.equals(other.palletType))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PalletType other = (PalletType) obj;
+        if (this.tareWeight != other.tareWeight) {
+            return false;
+        }
+        if (this.version != other.version) {
+            return false;
+        }
+        if (!Objects.equals(this.palletType, other.palletType)) {
             return false;
         }
         return true;
@@ -70,8 +107,9 @@ public class PalletType extends GuiMasterData implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("PalletType{palletType=").append(palletType);
-        sb.append(super.toString());
+        sb.append(", tareWeight=").append(tareWeight);
         sb.append(", version=").append(version);
+        sb.append(", pallets=").append(pallets);
         sb.append('}');
         return sb.toString();
     }

@@ -21,7 +21,7 @@ import javax.persistence.Version;
 @Entity
 @Table(name = "SLA", schema = "IACH7")
 @NamedQueries({
-    @NamedQuery(name = "ServiceLevelAgreement.findAll", query = "SELECT s FROM ServiceLevelAgreement s order by s.id")})
+    @NamedQuery(name = "Sla.findAll", query = "SELECT s FROM Sla s order by s.id")})
 public class Sla extends GuiMasterData implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
