@@ -3,26 +3,14 @@ package com.mycompany.iach7.loadingtackle.entity;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Version;
+import javax.persistence.MappedSuperclass;
 
 /**
  *
  */
-@Entity
-@Table(name = "LOADING_TACKLE", schema = "IACH7")
-@NamedQueries({
-    @NamedQuery(name = "LoadingTackle.findAll", query = "SELECT lt FROM LoadingTackle lt")})
+@MappedSuperclass
 public class LoadingTackle implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "ID")
-    private String id;
 
     /**
      * X dimension in [mm]
@@ -86,18 +74,6 @@ public class LoadingTackle implements Serializable {
     @Basic(optional = false)
     @Column(name = "COMMENT")
     private String comment;
-
-    @Version
-    @Basic(optional = false)
-    private int version;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getComment() {
         return comment;
@@ -171,36 +147,8 @@ public class LoadingTackle implements Serializable {
         this.material = material;
     }
 
-    public int getVersion() {
-        return version;
-    }
-
-    protected void setVersion(int version) {
-        this.version = version;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof LoadingTackle)) {
-            return false;
-        }
-        LoadingTackle other = (LoadingTackle) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public String toString() {
-        return "LoadingTackle{" + "id=" + id + ", xDim=" + xDim + ", yDim=" + yDim + ", zDim=" + zDim + ", weight=" + weight + ", nominalLoad=" + nominalLoad + ", maximumLoad=" + maximumLoad + ", optimalLoad=" + optimalLoad + ", material=" + material + ", comment=" + comment + ", version=" + version + '}';
+        return "LoadingTackle{" + "xDim=" + xDim + ", yDim=" + yDim + ", zDim=" + zDim + ", weight=" + weight + ", nominalLoad=" + nominalLoad + ", maximumLoad=" + maximumLoad + ", optimalLoad=" + optimalLoad + ", material=" + material + ", comment=" + comment + '}';
     }
 }

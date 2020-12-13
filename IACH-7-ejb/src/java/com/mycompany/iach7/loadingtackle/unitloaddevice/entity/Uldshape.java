@@ -2,8 +2,8 @@ package com.mycompany.iach7.loadingtackle.unitloaddevice.entity;
 
 import com.mycompany.iach7.util.GuiMasterData;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -87,8 +87,8 @@ public class Uldshape extends GuiMasterData implements Serializable {
     @Basic(optional = false)
     private int version;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shape")
-    private Collection<Uldtype> uldtypeCollection;
+    @OneToMany(mappedBy = "shape", cascade = CascadeType.ALL)
+    private Set<Uldtype> uldtypeSet;
 
     public Uldshape() {
     }
@@ -230,16 +230,16 @@ public class Uldshape extends GuiMasterData implements Serializable {
         return version;
     }
 
-    public void setVersion(int version) {
+    protected void setVersion(int version) {
         this.version = version;
     }
 
-    public Collection<Uldtype> getUldtypeCollection() {
-        return uldtypeCollection;
+    public Set<Uldtype> getUldtypes() {
+        return uldtypeSet;
     }
 
-    public void setUldtypeCollection(Collection<Uldtype> uldtypeCollection) {
-        this.uldtypeCollection = uldtypeCollection;
+    public void setUldtypes(Set<Uldtype> uldtypeCollection) {
+        this.uldtypeSet = uldtypeCollection;
     }
 
     @Override

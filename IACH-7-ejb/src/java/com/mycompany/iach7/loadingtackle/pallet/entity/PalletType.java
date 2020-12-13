@@ -2,16 +2,17 @@ package com.mycompany.iach7.loadingtackle.pallet.entity;
 
 import com.mycompany.iach7.util.GuiMasterData;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
 /**
  *
- * @author Tom
  */
 @Entity
 @Table(name = "PALLETTYPE", schema = "IACH7")
@@ -25,6 +26,9 @@ public class PalletType extends GuiMasterData implements Serializable {
     @Version
     @Basic(optional = false)
     private int version;
+
+    @OneToMany(mappedBy = "type", orphanRemoval = true)
+    private List<Pallet> pallets;
 
     public String getPalletType() {
         return palletType;
@@ -71,5 +75,4 @@ public class PalletType extends GuiMasterData implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
 }
