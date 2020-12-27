@@ -47,7 +47,7 @@ public class SlaTimeServiceBean implements SlaTimeService {
         SlaTime slaTime;
         if ((slaTime = slaTimeManager.getById(new SlaTimePK(slaTimeVO.getProvider(), slaTimeVO.getCustomer()))) != null) {
             log.info("SlaTime " + slaTime.getId() + " exists");
-            slaTime.setSlaTime(slaTimeVO.getSlaTime());
+            slaTime.setTime(slaTimeVO.getSlaTime());
             slaTime.setComment(slaTimeVO.getComment());
             slaTime.setUpdtGuiUser(slaTimeVO.getUpdtGuiUser());
             slaTime.setUpdtDttm(slaTimeVO.getUpdtDttm());
@@ -102,7 +102,7 @@ public class SlaTimeServiceBean implements SlaTimeService {
         SlaTimeVO slaTimeVO;
 
         for (SlaTime item : slaTimeList) {
-            slaTimeVO = new SlaTimeVO(item.getId().getProvider(), item.getId().getCustomer(), item.getSlaTime(), item.getComment(), item.getUpdtDttm(), item.getUpdtGuiUser());
+            slaTimeVO = new SlaTimeVO(item.getId().getProvider(), item.getId().getCustomer(), item.getTime(), item.getComment(), item.getUpdtDttm(), item.getUpdtGuiUser());
             slaTimeVOList.add(slaTimeVO);
         }
 
@@ -119,7 +119,7 @@ public class SlaTimeServiceBean implements SlaTimeService {
         SlaTimeVO slaTimeVO;
 
         for (SlaTime item : slaTimeList) {
-            slaTimeVO = new SlaTimeVO(item.getId().getProvider(), item.getId().getCustomer(), item.getSlaTime(), item.getComment(), item.getUpdtDttm(), item.getUpdtGuiUser());
+            slaTimeVO = new SlaTimeVO(item.getId().getProvider(), item.getId().getCustomer(), item.getTime(), item.getComment(), item.getUpdtDttm(), item.getUpdtGuiUser());
             slaTimeVOList.add(slaTimeVO);
         }
 

@@ -350,9 +350,7 @@ public class ToureventManagerBeanNGTest {
 
         // check if only the requested TourId is in the results
         List<Tourevent> results = tourevent.getByTourId(OTHER_TOUR_ID);
-        results.forEach(event -> {
-            assertTrue(event.getId().getTourId().equals(OTHER_TOUR_ID));
-        });
+        results.forEach(event -> assertTrue(event.getId().getTourId().equals(OTHER_TOUR_ID)));
     }
 
     /**

@@ -105,9 +105,7 @@ public class Sla extends GuiMasterData implements Serializable {
 
     public void addSlaTimeItems(Set<SlaTime> items) {
         this.slaTimeItems.addAll(items);
-        items.forEach(elem -> {
-            elem.setSla(this);
-        });
+        items.forEach(elem -> elem.setSla(this));
     }
 
     @Override

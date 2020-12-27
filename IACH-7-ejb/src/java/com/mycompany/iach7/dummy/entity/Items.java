@@ -24,7 +24,7 @@ public class Items implements Serializable {
     @Column(name = "ID", updatable = false, nullable = false) // for integrity
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY) // LAZY for bettter performance
+    @ManyToOne(fetch = FetchType.LAZY) // LAZY for better performance
     @JoinColumn(name = "cart_id", nullable = false) // nullable = false for integrity
     private Cart cart;
 

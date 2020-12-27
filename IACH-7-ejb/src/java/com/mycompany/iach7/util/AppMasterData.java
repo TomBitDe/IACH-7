@@ -20,18 +20,38 @@ public class AppMasterData implements Serializable {
     @Column(name = "UPDTUSER")
     private String updtUser;
 
+    /**
+     * Get the update DTTM
+     *
+     * @return the DTTM value
+     */
     public String getUpdtDttm() {
         return updtDttm;
     }
 
+    /**
+     * Set the update DTTM
+     *
+     * @param updtDttm the DTTM value
+     */
     public void setUpdtDttm(String updtDttm) {
         this.updtDttm = updtDttm;
     }
 
+    /**
+     * Get the update users name
+     *
+     * @return the users name
+     */
     public String getUpdtUser() {
         return updtUser;
     }
 
+    /**
+     * Set the update users name
+     *
+     * @param updtUser the users name
+     */
     public void setUpdtUser(String updtUser) {
         this.updtUser = updtUser;
     }
@@ -44,5 +64,4 @@ public class AppMasterData implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
 }

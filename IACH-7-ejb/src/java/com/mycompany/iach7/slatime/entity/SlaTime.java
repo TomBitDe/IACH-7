@@ -31,7 +31,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "SLATIME")
-    private int slaTime;
+    private int time;
 
     @Basic(optional = false)
     @Column(name = "COMMENT")
@@ -49,7 +49,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super();
 
         this.id = new SlaTimePK("", "");
-        this.slaTime = 0;
+        this.time = 0;
         this.comment = "";
         super.setUpdtDttm("");
         super.setUpdtGuiUser("");
@@ -59,7 +59,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super();
 
         this.id = id;
-        this.slaTime = slaTime;
+        this.time = slaTime;
         this.comment = comment;
         super.setUpdtDttm(updtDttm);
         super.setUpdtGuiUser(updtGuiUser);
@@ -69,7 +69,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super();
 
         this.id = id;
-        this.slaTime = slaTime;
+        this.time = slaTime;
         this.comment = comment;
         super.setUpdtDttm(DttmMakeHelper.makeDttm17());
         super.setUpdtGuiUser(updtGuiUser);
@@ -79,7 +79,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super();
 
         this.id = id;
-        this.slaTime = slaTime;
+        this.time = slaTime;
         this.comment = comment;
         super.setUpdtDttm(DttmMakeHelper.makeDttm17());
         super.setUpdtGuiUser("SYSTEM");
@@ -89,7 +89,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         super();
 
         this.id = id;
-        this.slaTime = slaTime;
+        this.time = slaTime;
         this.comment = "";
         super.setUpdtDttm(DttmMakeHelper.makeDttm17());
         super.setUpdtGuiUser("SYSTEM");
@@ -108,17 +108,17 @@ public class SlaTime extends GuiMasterData implements Serializable {
      *
      * @return the time value in minutes
      */
-    public int getSlaTime() {
-        return slaTime;
+    public int getTime() {
+        return time;
     }
 
     /**
      * Set the SlaTime
      *
-     * @param slaTime the value in minutes
+     * @param time the value in minutes
      */
-    public void setSlaTime(int slaTime) {
-        this.slaTime = slaTime;
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public String getComment() {
@@ -149,7 +149,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + Objects.hashCode(this.id);
-        hash = 97 * hash + Objects.hashCode(this.slaTime);
+        hash = 97 * hash + Objects.hashCode(this.time);
         hash = 97 * hash + Objects.hashCode(this.comment);
         hash = 97 * hash + this.version;
         return hash;
@@ -170,7 +170,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
         if (this.version != other.version) {
             return false;
         }
-        if (!Objects.equals(this.slaTime, other.slaTime)) {
+        if (!Objects.equals(this.time, other.time)) {
             return false;
         }
         if (!Objects.equals(this.comment, other.comment)) {
@@ -186,7 +186,7 @@ public class SlaTime extends GuiMasterData implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("SlaTime{id=").append(id);
-        sb.append(", slaTime=").append(slaTime);
+        sb.append(", slaTime=").append(time);
         sb.append(", comment=").append(comment);
         sb.append(", version=").append(version);
         sb.append(", sla=").append(sla);

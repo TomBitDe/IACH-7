@@ -63,9 +63,7 @@ public class Cart implements Serializable {
 
     public void addItems(Set<Items> items) {
         this.items.addAll(items);
-        items.forEach(elem -> {
-            elem.setCart(this);
-        });
+        items.forEach(elem -> elem.setCart(this));
     }
 
     @Override

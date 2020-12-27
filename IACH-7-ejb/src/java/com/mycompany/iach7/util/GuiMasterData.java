@@ -20,18 +20,38 @@ public class GuiMasterData implements Serializable {
     @Column(name = "UPDTGUIUSER")
     private String updtGuiUser;
 
+    /**
+     * Get the update DTTM
+     *
+     * @return the DTTM
+     */
     public String getUpdtDttm() {
         return updtDttm;
     }
 
+    /**
+     * Set the update DTTM
+     *
+     * @param updtDttm the DTTM value
+     */
     public void setUpdtDttm(String updtDttm) {
         this.updtDttm = updtDttm;
     }
 
+    /**
+     * Get the update GUI user name
+     *
+     * @return the users name
+     */
     public String getUpdtGuiUser() {
         return updtGuiUser;
     }
 
+    /**
+     * Set the update GUI users name
+     *
+     * @param updtGuiUser the users name
+     */
     public void setUpdtGuiUser(String updtGuiUser) {
         this.updtGuiUser = updtGuiUser;
     }
@@ -44,5 +64,4 @@ public class GuiMasterData implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
 }
